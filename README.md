@@ -2,11 +2,14 @@
 [![Build Status](https://travis-ci.org/meanjs/mean.svg?branch=master)](https://travis-ci.org/meanjs/mean)
 
 ## The Apphera Sense Dashboard or Cockpit is your starting point for social media monitoring and engagement. It is one of the most
-## important endpoints to Apphera Core, the main Apphera API
+## important endpoints to [Apphera Core](https://github.com/nikoma/apphera-core), the main Apphera API
 
 Add your Apphere API token as environment variable before using Apphera Sense
 
 export APPHERA_API_TOKEN=o8wd5o23479hkejhiwr87r898775pdm37dp (example)
+
+
+
 
 
 

@@ -1,0 +1,36 @@
+<section data-ng-controller="TracksController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Tracks</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="track in tracks" data-ng-href="#!/tracks/{{track._id}}" class="list-group-item">
+			<!--<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="track.body.created_time | date:'medium'"></span>
+				by
+				<span data-ng-bind="track.body.from.name"></span>
+                <img ng-src="{{track.body.picture}}"/>
+			</small>-->
+            
+            <small class="list-group-item-text1">
+			<table cellspacing="0" cellpadding="0" border="0" width="100%;">
+				<tr>
+				 <td width="6%"><img ng-src="{{track.body.picture}}"/>&nbsp;</td>
+				  <td width="3%"><spacer type="block" width="1%"></td>
+					<td width="62%"> by  <span data-ng-bind="track.body.from.name"></span> </td>
+					<td width="1%"><spacer type="block" width="1%"></td>
+					<td width="12%">Posted on <span data-ng-bind="twitter.created | date:'medium'"></span></td>
+					<td width="2%"><spacer type="block" width="1%"></td>
+					<td width="14%"><span data-ng-bind="track.body.created_time | date:'medium'"></span></td>
+					
+				</tr>				
+               </table>
+
+            </small>
+           
+			<h4 class="list-group-item-heading" data-ng-bind="track.name"></h4>
+        </a>
+        <begriffs.pagination per-page="10" collection="tracks" url="url"></begriffs.pagination>	
+    </div>
+
+</section>

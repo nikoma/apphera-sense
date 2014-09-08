@@ -1,0 +1,131 @@
+<section data-ng-controller='OrganizationsController' ng-data-init="findOne()">
+    <div class="row">
+        <div class="col-sm-12 editac-container">
+            <h3 class="col-sm-12">Edit {{ organization.name }} - JUST FOR DEMO - RECORDS CAN'T BE EDITED</h3>
+            <form class="form-horizontal" data-ng-submit="create()" novalidate>
+
+                <div class="form-group">
+                    <label for="name" class="col-lg-2 control-label">Name</label>
+                    <div class="col-lg-4">
+                        <input type="text" class="form-control" data-ng-model="organization.name" placeholder="Name">
+                    </div>
+                    <div class="col-lg-6 "></div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="street" class="col-lg-2 control-label">Street 1</label>
+                    <div class="col-lg-4">
+                        <input type="text" class="form-control" data-ng-model="organization.street" placeholder="Street 1">
+                    </div>
+                    <div class="col-lg-6 "></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="street2" class="col-lg-2 control-label">Street 2</label>
+                    <div class="col-lg-4">
+                        <input type="text" class="form-control" data-ng-model="organization.street2" placeholder="Street 2">
+                    </div>
+                    <div class="col-lg-6 "></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="postalcode" class="col-lg-2 control-label">Postal Code</label>
+                    <div class="col-lg-4">
+                        <input type="text" class="form-control" data-ng-model="organization.postalcode" placeholder="Name">
+                    </div>
+                    <div class="col-lg-6 "></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="city" class="col-lg-2 control-label">City</label>
+                    <div class="col-lg-4">
+                        <input type="text" class="form-control" data-ng-model="organization.city" placeholder="City">
+                    </div>
+                    <div class="col-lg-6 "></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="state" class="col-lg-2 control-label">State</label>
+                    <div class="col-lg-4">
+                        <input type="text" class="form-control" data-ng-model="organization.state" placeholder="State">
+                    </div>
+                    <div class="col-lg-6 "></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone1" class="col-lg-2 control-label">Phone 1</label>
+                    <div class="col-lg-4">
+                        <input type="text" class="form-control" data-ng-model="organization.phone1" placeholder="Phone 1">
+                    </div>
+                    <div class="col-lg-6 "></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone2" class="col-lg-2 control-label">Phone 2</label>
+                    <div class="col-lg-4">
+                        <input type="text" class="form-control" data-ng-model="organization.phone2" placeholder="Phone 2">
+                    </div>
+                    <div class="col-lg-6 "></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="url" class="col-lg-2 control-label">Url</label>
+                    <div class="col-lg-4">
+                        <input type="text" class="form-control" data-ng-model="organization.url" placeholder="Url">
+                    </div>
+                    <div class="col-lg-6 "></div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label for="facebook" class="col-lg-2 control-label">Facebook</label>
+                    <div class="col-lg-4">
+                        <input type="text" class="form-control" data-ng-model="organization.facebook" placeholder="Facebook">
+                    </div>
+                    <div class="col-lg-6 "></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="twitter" class="col-lg-2 control-label">Twitter</label>
+                    <div class="col-lg-4">
+                        <input type="text" class="form-control" data-ng-model="organization.twitter" placeholder="Twitter">
+                    </div>
+                    <div class="col-lg-6 "></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="twitter" class="col-lg-2 control-label">Category</label>
+                    <div class="col-lg-4">
+                        <select data-ng-model='category'>
+                            <option value='{{cat.id}}' data-ng-repeat='cat in categories'>{{cat.name}}</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-6 "></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="twitter" class="col-lg-2 control-label">Country Code</label>
+                    <div class="col-lg-4">
+                        <select data-ng-model='country_code'>
+                            <option value='{{code.id}}' data-ng-repeat='code in country_codes'>{{code.name}}</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-6 "></div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-4">
+                        <input type="submit" class="btn  org-btn" value="save">&nbsp; &nbsp;
+                        <input type="submit" class="btn  gry-btn" value="cancel">
+                        <div data-ng-show="error" class="text-danger">
+                            <strong data-ng-bind="error"></strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 "></div>
+            </form>
+        </div>
+    </div>
+</section>

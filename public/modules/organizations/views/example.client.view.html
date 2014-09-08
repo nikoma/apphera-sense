@@ -1,0 +1,17 @@
+<section data-ng-controller="OrganizationsController" data-ng-init="find()">
+
+<h1>Bamm - Everymedia Analytics rocks! I am just an example of how to add a page</h1>
+
+        I am at public/modules/orgnizations/views/example.client.view.html
+        I order to show up I have to be added to a routing file.
+        For example at:
+        public/modules/organizations/config/organizations.client.routes.js
+
+    <hr />
+    You can also show data when it's in the scope... like authentication.user.name in this case - or some data about an organization..
+
+    <h3>{{authentication.user.displayName}}</h3>
+    <h4> Organization name: {{organizations[0].name}}</h4>
+    <h4> organization ID in Apphera system: {{organizations[0].id}}</h4>
+
+</section>

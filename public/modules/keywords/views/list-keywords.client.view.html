@@ -1,0 +1,85 @@
+<section data-ng-controller="KeywordsController" data-ng-init="find()">
+
+    <div class="page-header">
+        <h1>Keyword <input type="submit" class="btn org-btn pull-right" ng-click="openAddKeywordModal()" value="Add New Keyword"></h1>
+    </div>
+    <div ng-hide='keywords.length > 0' id="loader" >
+    <img src="modules/core/img/big-ajax-loader.gif" />
+    </div>
+
+    <div class="list-group">
+        <div data-ng-repeat="keyword in keywords" current-page="currentPage" class="list-group-item">
+			
+            <small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="keyword.created_at | date:'medium'"></span>
+				total tweets:
+				<span data-ng-bind="keyword.keyword_aggregates[0].aggregates.tweets_total"></span>
+			</small>
+            <span class="pull-right post_data">
+                  <a data-ng-show="keyword.tracks.indexOf('twitter') >= 0"  data-ng-href="#!/tracks/twitter/{{keyword.id}}"><img alt="twitter" src="modules/core/img/twitter.jpg"/></a>
+                  <a data-ng-show="keyword.tracks.indexOf('facebook') >= 0"  data-ng-href="#!/tracks/{{keyword.id}}"><img src="modules/core/img/facebook.jpg"/></a>
+                  <a data-ng-show="keyword.tracks.indexOf('youtube') >= 0" data-ng-href="#!/tracks/youtube/{{keyword.id}}"><img src="modules/core/img/youtube.jpg"/></a>  
+                  <a data-ng-show="keyword.tracks.indexOf('instagram') >= 0" data-ng-href="#!/tracks/instagram/{{keyword.id}}"><img src="modules/core/img/instagram.jpg"/></a>                 
+                  <a data-ng-show="keyword.tracks.indexOf('search') >= 0" data-ng-href="#!/tracks/search/{{keyword.id}}"><img src="modules/core/img/search_icon.jpg"/></a>
+                  <a data-ng-href="#!/tracks/{{keyword.id}}"><img src="modules/core/img/delete.jpg"/></a>&nbsp; &nbsp;
+            </span>
+			<h4 class="list-group-item-heading" data-ng-bind="keyword.name"></h4>
+               
+        </div>
+    </div>
+
+    <!--pagination directive comes here-->
+
+    <div class="alert alert-warning text-center" data-ng-hide="!keywords.$resolved || keywords.length">
+    	No Keywords yet, why don't you <a href="/#!/keywords/create">create one</a>?
+    </div>
+    <div class="modal fade" id="saveKeyword"   tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">New Keyword</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+        	<div class="col-md-12 editac-container">
+                <form data-ng-submit="create()" class="form-horizontal" novalidate autocomplete="off">
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="name" class="col-lg-3 control-label">Name</label>
+                            <div class="col-lg-6">
+                                <input type="text" required id="firstName" name="keyword" class="form-control" data-ng-model="name" placeholder="Keyword">
+                            </div>
+                            
+                        </div>
+                      <div class="form-group">
+                       <label for="name" class="col-lg-3 control-label">Markets</label>
+                       <div class="col-lg-6">
+                            <div multi-select input-model="markets" button-label="name" item-label="name" tick-property="ticked"></div>
+                       </div>
+                      </div>
+                      <div class="form-group">
+                       <label for="name" class="col-lg-3 control-label">Tracks</label>
+                       <div class="col-lg-6">
+                           <div multi-select input-model="tracks" button-label="name" item-label="maker" tick-property="ticked"></div>
+                       </div>
+                      </div>
+                        <div data-ng-show="error" class="text-center text-danger">
+                            <strong data-ng-bind="error"></strong>
+                        </div>
+                    </fieldset>
+                
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn gry-btn" data-dismiss="modal">Cancel</button>
+        <button type="submit"  class="btn org-btn" data-ng-click="create()">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+

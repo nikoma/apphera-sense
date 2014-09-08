@@ -1,0 +1,35 @@
+<section data-ng-controller="OrganizationsController" data-ng-init="find()">
+    <div class="page-header">
+        Organizations
+    </div>
+<div class="loader">
+       <div ng-hide='filteredOrganization.length > 0'>
+    <img src="modules/core/img/big-ajax-loader.gif" />
+    </div></div>
+    <div class="list-group">
+    <div data-ng-repeat="organization in filteredOrganization" class="list-group-item">
+    <small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="organization.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="organization.user.displayName"></span>
+                <span class="pull-right post_data">
+                  <a  data-ng-href="#!/organizations/{{organization.id}}/edit">Edit</a>&nbsp; &nbsp;
+                  <a  data-ng-href="#!/organizations/{{organization.id}}" class="delete"><span class="delete_icon"></span>Delete</a>&nbsp; &nbsp;
+                </span>
+                </small>
+			<h4 class="list-group-item-heading" data-ng-bind="organization.name"></h4>
+    </div>
+        
+		<pagination  total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></pagination>	
+               
+                
+			
+        </a>
+        
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!organizations.$resolved || organizations.length">
+    	No Organizations yet, why don't you <a href="/#!/organizations/create">create one</a>?
+    </div>
+</section>
+

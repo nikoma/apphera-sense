@@ -1,0 +1,30 @@
+<section data-ng-controller="ReviewsController">
+<br />
+    <span class="dropdown" on-toggle="toggled(open)">
+      <a href class="dropdown-toggle">
+          Chose Organization
+      </a>
+      <ul class="dropdown-menu">
+          <li ng-repeat="organization in organizations">
+              <a href="#!/reviews/{{organization.id}}">{{ organization.name }}</a>
+          </li>
+      </ul>
+    </span>
+    <div  id="loader"   ng-show="loader">
+        <img src="modules/core/img/big-ajax-loader.gif" />
+    </div>
+    <h2> Reviews </h2>
+    <div data-ng-repeat="review in reviews">
+       Provider: {{ review.content_provider_id }} <br />
+
+        <img ng-src="{{review.reviewer.imageurl}}"  fallback-src="http://s3-media3.ak.yelpcdn.com/assets/2/www/img/7eb06b6a9db5/gfx/blank_user_small.gif" alt="{{ review.reviewer.name}}"> - <em>{{ review.reviewer.name }} </em>
+        wrote: <br/>
+
+        <em> {{ review.title }}</em>
+    {{ review.body }}<br />
+       Rating: {{ review.rating }} <br />
+        {{ review.review_url }} <br />
+
+        <hr />
+    </div>
+</section>

@@ -1,0 +1,35 @@
+﻿<section data-ng-controller="youtubeController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Youtube</h1>
+    </div>
+
+      <div  id="loader"   ng-show="loader">
+    <img src="modules/core/img/big-ajax-loader.gif" />
+    </div>
+
+
+     <div class="alert alert-warning text-center" ng-show="noData">
+    	No data found
+    </div>
+
+    <div class="list-group">
+      <a target="_blank" data-ng-repeat="youtube in youtubes" data-ng-href="{{youtube.player_url}}" class="list-group-item">
+        <small class="list-group-item-text1">
+    			<table cellspacing="0" cellpadding="0" border="0" width="100%;">
+    				<tr>
+              <td width="10%"><img ng-src="{{youtube.thumbnails[0].url}}"/>&nbsp;</td>
+    				  <td width="3%"><spacer type="block" width="1%"></td>
+    				  <td width="30%"> by  <span data-ng-bind="youtube.title"></span> </td>
+    				  <td width="3%"><spacer type="block" width="1%"></td>
+    				  <td width="30%">Posted on <span data-ng-bind="youtube.description"></span></td>
+    				  <td width="3%"><spacer type="block" width="1%"></td>
+    				  <td width="21%"><span data-ng-bind="youtube.published_at | date:'medium'"></span></td>
+    				</tr>				
+          </table>
+      </small>
+  		<h4 class="list-group-item-heading" data-ng-bind="youtube.name"></h4>
+    </a>
+    <begriffs.pagination per-page="10" collection="youtubes" url="url"></begriffs.pagination> 	
+    </div>
+
+</section>

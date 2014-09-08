@@ -1,0 +1,37 @@
+<section data-ng-controller="InstagramController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Instagram</h1>
+    </div>
+
+       <div  id="loader"   ng-show="loader">
+    <img src="modules/core/img/big-ajax-loader.gif" />
+    </div>
+
+
+     <div class="alert alert-warning text-center" ng-show="noData">
+    	No data found
+    </div>
+       
+
+    <div class="list-group">
+        <a target="_blank" data-ng-repeat="instagram in tracks" data-ng-href="{{instagram.body.link}}" class="list-group-item">
+            <small class="list-group-item-text1">
+                <table cellspacing="0" cellpadding="0" border="0" width="100%;">
+                    <tr>
+                        <td width="10%"><img ng-src="{{instagram.body.images.thumbnail.url}}"/>&nbsp;</td>
+    				    <td width="3%"><spacer type="block" width="1%"></td>
+    				    <td width="30%"> by  <span data-ng-bind="instagram.body.user.full_name"></span> </td>
+    				    <td width="3%"><spacer type="block" width="1%"></td>
+    				    <td width="30%">like count <span data-ng-bind="instagram.body.likes.count"></span></td>
+    				    <td width="3%"><spacer type="block" width="1%"></td>
+    				    <td width="21%"><span data-ng-bind="instagram.body.created_time | date:'medium'"></span></td>
+                    </tr>
+                </table>
+            </small>
+            <h4 class="list-group-item-heading" data-ng-bind="instagram.text"></h4>
+        </a>
+        <begriffs.pagination collection="tracks" per-page="10" url="url"></begriffs.pagination> 	
+    </div>
+
+
+</section>
